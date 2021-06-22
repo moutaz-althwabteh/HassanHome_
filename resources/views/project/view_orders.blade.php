@@ -16,7 +16,7 @@
            </div>
            
            <div class="portlet-body form">
-           <form role="form" method="post" action="{{ route('projeeect.store') }}">
+           <form role="form" method="post" action="{{ route('orders.store') }}">
                @csrf
                    <div class="row" style="padding:20px">
                            <div class="col-md-2">
