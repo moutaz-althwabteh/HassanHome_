@@ -39,3 +39,5 @@ Route::get('/view_suppliers', function () {
 Route::get('/view_orders', function () {
     return view('project.view_orders');
 });
+
+Route::resource('orders', 'OorderController');

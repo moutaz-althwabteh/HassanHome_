@@ -43,21 +43,8 @@ class ProjectController extends Controller
            'project_num'=>'required',
            'Project_gps'=>'required',
            'Project_owner'=>'required',
-           'Project_mfawd'=>'required',
-           'bulding_mfaud_id'=>'required',
-           'bulding_mfaud_address'=>'required',
-           'bulding_part'=>'required',
-           'project_area'=>'required',
-            'project_emp'=>'required',
-            'project_type'=>'required',
-            'project_status'=>'required',
-            'project_sdate'=>'required',
-            'project_edate'=>'required',
-            'project_budget'=>'required',
-            'project_budget_curr'=>'required',
-            'project_contract'=>'required',
-            'project_notes'=>'required',
-        ]);
+           
+        ]); 
 
         $project = project::create($request->all()); 
         return redirect()->route('project.view_projects')->with('success','تم اضافة بيانات المشروع بنجاح');

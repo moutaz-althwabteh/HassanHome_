@@ -29,5 +29,8 @@ class project extends Model
         'project_contract',
         'project_notes',
     ];
+    
 }
+
+
 
