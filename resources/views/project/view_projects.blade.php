@@ -28,7 +28,7 @@
                     <td> رقم القطعة 15، رقم القسيمة 223، مساحة الأرض 600 م </td>
                     <td  class="numeric"><span class = "glyphicon glyphicon-plus" title="اضافة شقة"></span> | <Span class="glyphicon glyphicon-remove" title="حذف"></Span> | <Span class="glyphicon glyphicon-pencil " title="تعديل">  </td>
                     </tr>
-        
+                    @endforeach
             </tbody>
         </table>
     </div>

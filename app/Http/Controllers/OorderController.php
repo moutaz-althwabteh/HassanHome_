@@ -37,7 +37,7 @@ class OorderController extends Controller
     public function store(Request $request)
     {
       $order = Oorder::create($request->all());
-      return redirect()->route('project.view_orders')->with('success','تم اضافة بيانات الطلبية بنجاح');
+      return redirect()->route('order.view')->with('success','تم اضافة بيانات الطلبية بنجاح');
 
     }
 
@@ -60,7 +60,8 @@ class OorderController extends Controller
      */
     public function edit(Oorder $oorder)
     {
-        //
+        
+
     }
 
     /**

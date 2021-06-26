@@ -28,16 +28,26 @@ Route::get('/add_project', function () {
     return view('project.add_project');
 });
 
+Route::get('/add_supplier', function () {
+    return view('project.add_supplier');
+});
+
+Route::get('/add_order', function () {
+    return view('project.add_order');
+});
+
 Route::get('/view_projects', function () {
     return view('project.view_projects');
 });
 
 Route::get('/view_suppliers', function () {
     return view('project.view_suppliers');
-});
+})->name('suppliers.view');
 
 Route::get('/view_orders', function () {
     return view('project.view_orders');
-});
+})->name('order.view');
 
 Route::resource('orders', 'OorderController');
+
+Route::resource('supplier', 'SupplierController');

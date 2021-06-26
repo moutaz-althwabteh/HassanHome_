@@ -69,18 +69,23 @@
                 <div class="page-actions">
                     <div class="btn-group">
                         <button type="button" class="btn btn-circle btn-outline red dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-plus"></i>&nbsp;
-                            <span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;
-                            <i class="fa fa-angle-down"></i>
+                            <i class="icon-plus"></i>&nbsp;
+                            <span class="hidden-sm hidden-xs">جـديـد&nbsp;</span>&nbsp;
+                            <i class="icon-plus"></i>
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="javascript:;">
-                                    <i class="icon-docs"></i> New Post </a>
+                                <a href="{{ url ('/add_project')}}">
+                                    <i class="icon-docs"></i> مشروع جديد </a>
                             </li>
                             <li>
-                                <a href="javascript:;">
-                                    <i class="icon-tag"></i> New Comment </a>
+                                <a href="{{ url ('/add_supplier')}}">
+                                    <i class="icon-calendar"></i> مورد </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ url ('/add_order')}}">
+                                    <i class="icon-tag"></i> طلبية </a>
                             </li>
                         </ul>
                     </div>
@@ -187,55 +192,27 @@
                         
                         
                         <li class="nav-item  ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
+                            <a href="{{url('/view_projects')}}" class="nav-link nav-toggle">
                                 <i class="icon-docs"></i>
                                 <span class="title">المشاريع</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="{{url('/add_project')}}" class="nav-link ">
-                                        <span class="title">اضافة مشروع جديد</span>
-                                    </a>
-                                </li>
-                                <li class="nav-item  ">
-                                    <a href="{{url('/view_projects')}}" class="nav-link ">
-                                        <span class="title">إدارة المشاريع</span>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
 
                         <li class="nav-item  ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
+                            <a href="{{ url('/view_suppliers') }}" class="nav-link nav-toggle">
                                 <i class="icon-users"></i>
                                 <span class="title">الموردين</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="{{ url('/view_suppliers') }}" class="nav-link ">
-                                        <span class="title">اضافة جديد</span>
-                                    </a>
-                                </li>
-                             
-                            </ul>
                         </li>
 
                         <li class="nav-item  ">
-                            <a href="javascript:;" class="nav-link nav-toggle">
+                            <a href="{{ url('/view_orders') }}" class="nav-link nav-toggle">
                                 <i class="icon-envelope-open"></i>
                                 <span class="title"> الطلبيات</span>
                                 <span class="arrow"></span>
                             </a>
-                            <ul class="sub-menu">
-                                <li class="nav-item  ">
-                                    <a href="{{ url('/view_orders') }}" class="nav-link ">
-                                        <span class="title">اضافة جديد</span>
-                                    </a>
-                                </li>
-                             
-                            </ul>
                         </li>
                       
                     </ul>

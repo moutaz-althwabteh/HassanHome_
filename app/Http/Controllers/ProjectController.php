@@ -42,12 +42,12 @@ class ProjectController extends Controller
            'project_name'=>'required',
            'project_num'=>'required',
            'Project_gps'=>'required',
-           'Project_owner'=>'required',
+           'Project_owner'=>'sometimes',
            
         ]); 
-
+      //  dd($request->all());
         $project = project::create($request->all()); 
-        return redirect()->route('project.view_projects')->with('success','تم اضافة بيانات المشروع بنجاح');
+        return redirect()->route('view_projects')->with('success','تم اضافة بيانات المشروع بنجاح');
     }
 
     /**
