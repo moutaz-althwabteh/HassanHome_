@@ -3,49 +3,8 @@
 @section('content')
 <div class="row" >
 
-    <div class="col-md-12">
+    
 
-<div class="portlet box blue ">
-           <div class="portlet-title">
-               <div class="caption">
-                   <i class="fa fa-gift"></i> اضافة بيانات المورد </div>
-               <div class="tools">
-                   <a href="" class="collapse"> </a>
-                   <a href="" class="remove"> </a>
-               </div>
-           </div>
-           
-           <div class="portlet-body form">
-           <form role="form" method="post">
-                   <div class="row" style="padding:20px">
-                       <div class="col-md-2">
-                           <input type="text" name="t1" data-date-format="yyyy-mm-dd" class="form-control form-control-inline input-small date-picker" placeholder="التاريخ"> </div>
-
-                           <div class="col-md-2">
-                           <input type="text" name="t3" class="form-control" placeholder="اسم المورد"> </div>
-                       <div class="col-md-2">
-                           <input type="text" name="t4" class="form-control" placeholder="التصنيف"> </div>
-                           <div class="col-md-2">
-                            <input type="text" name="t4" class="form-control" placeholder="رقم الجوال"> </div>
-                            <div class="col-md-2">
-                                <input type="text" name="t4" class="form-control" placeholder="رقم الهاتف"> </div>
-                       <div class="col-md-2">
-                           <div class="input-group input-small">
-                               <input type="text" name="t6" class="form-control" placeholder="البريد الإلكتروني ">
-                               <span class="input-group-btn">
-                                   <button class="btn blue" type="submit" name="b1">حفـــظ</button>
-                               </span>
-                           </div>
-                           <!-- /input-group -->
-                       </div>
-                   </div>
-                      <div style="float:left;">   </div>      
-                           </form>
-                           <!-- END FORM-->
-                       </div>
-       </div>
-       </div>
-       </div>
        <div class="portlet box blue">
         <div class="portlet-title">
             <div class="caption">
@@ -68,18 +27,32 @@
                        </tr>
                    </thead>
                    <tbody>
+
+                       @php
+                           $i=0;
+                       @endphp
+                       @foreach ($suppliers as $item)
                        <tr>
-                           <td class="numeric"></td>
-                           <td class="numeric"></td>
-                           <td class="numeric"></td>
-                           <td class="numeric"></td>
-                           <td class="numeric"></td>
-                            <td class="numeric"></td>
-                           <td class="numeric"></td>
-                           <td  class="numeric"><span class = "glyphicon glyphicon-plus" title="التفاصيل"></span> | <Span class="glyphicon glyphicon-remove" title="حذف"></Span> | <Span class="glyphicon glyphicon-pencil " title="تعديل">  </td>
+                           <td class="numeric">{{ ++$i }}</td>
+                           <td class="numeric">{{ $item->date }}</td>
+                           <td class="numeric">{{ $item->s_name }}</td>
+                           <td class="numeric">{{ $item->type }}</td>
+                           <td class="numeric">{{ $item->mobile }}</td>
+                            <td class="numeric">{{ $item->phone }}</td>
+                           <td class="numeric">{{ $item->email }}</td>
+                           <td  class="numeric"> 
+                               <a href="{{ route('supplier.edit',$item->id) }}">تعديل</a>
+                               <a href="{{ route('supplier.show',$item->id) }}">حذف</a>
+                               <form  action="{{ route('supplier.destroy',$item->id) }}">
+                                   @csrf
+                                   @method('DELETE')
+                                   <button type="submit" class=" btn btn-danger">حذف</button>
+                               </form>
+                        </td>
 
                        </tr>
-                    
+
+                       @endforeach
                    </tbody>
                </table>
            </div>
