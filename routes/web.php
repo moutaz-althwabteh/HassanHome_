@@ -40,9 +40,9 @@ Route::get('/view_projects', function () {
     return view('project.view_projects');
 });
 
-Route::get('/view_suppliers', function () {
-    return view('project.view_suppliers');
-})->name('suppliers.view');
+// Route::get('/view_suppliers', function () {
+//     return view('project.view_suppliers');
+// })->name('suppliers.view');
 
 Route::get('/view_orders', function () {
     return view('project.view_orders');
