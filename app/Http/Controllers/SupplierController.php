@@ -17,7 +17,7 @@ class SupplierController extends Controller
     
     $suppliers = Supplier::all();
 //$suppliers = supplier::latest()->paginate(4);
-return view('project.view_suppliers', compact('suppliers'));
+    return view('project.view_suppliers', compact('suppliers'));
     }
 
     /**
@@ -39,7 +39,7 @@ return view('project.view_suppliers', compact('suppliers'));
     public function store(Request $request)
     {
         $supplay = supplier::create($request->all());
-        return redirect()->route('suppliers.view')->with('success','تم اضافة بيانات المورد بنجاح');
+        return redirect()->route('suppliers.index')->with('success','تم اضافة بيانات المورد بنجاح');
     }
 
     /**
@@ -76,7 +76,7 @@ return view('project.view_suppliers', compact('suppliers'));
     public function update(Request $request, supplier $supplier)
     {
         $supplay = supplier::update($request->all());
-        return redirect()->route('suppliers.view')->with('success',' تم التعديل بنجاح  ');
+        return redirect()->route('suppliers.index')->with('success',' تم التعديل بنجاح  ');
     }
 
     /**

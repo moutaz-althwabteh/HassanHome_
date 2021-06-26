@@ -200,7 +200,7 @@
                         </li>
 
                         <li class="nav-item  ">
-                            <a href="{{ url('/view_suppliers') }}" class="nav-link nav-toggle">
+                            <a href="{{ route('supplier.index') }}" class="nav-link nav-toggle">
                                 <i class="icon-users"></i>
                                 <span class="title">الموردين</span>
                                 <span class="arrow"></span>
