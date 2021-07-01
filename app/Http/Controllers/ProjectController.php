@@ -47,7 +47,7 @@ class ProjectController extends Controller
         ]); 
       //  dd($request->all());
         $project = project::create($request->all()); 
-        return redirect()->route('view_projects')->with('success','تم اضافة بيانات المشروع بنجاح');
+        return redirect()->route('projects.index')->with('success','تم اضافة بيانات المشروع بنجاح');
     }
 
     /**
@@ -58,7 +58,7 @@ class ProjectController extends Controller
      */
     public function show(project $project)
     {
-        return view('project.show', compact('project'));
+        return view('project.show_details', compact('project'));
 
     }
 
@@ -70,7 +70,7 @@ class ProjectController extends Controller
      */
     public function edit(project $project)
     {
-        return view('project.edit', compact('project'));
+        return view('project.edit_project', compact('project'));
 
     }
 
@@ -83,15 +83,9 @@ class ProjectController extends Controller
      */
     public function update(Request $request, project $project)
     {
-        $request->validate([
-            'project_name'=>'required',
-            'project_num'=>'required',
-            'Project_owner'=>'required',
-            'Project_gps'=>'required',
-            'bulding_mfaud_address'=>'required',
-         ]);
-         $project = Project::update($request->all()); 
-         return redirect()->route('project.index')->with('success','project updated successfully');
+     
+         $project->update($request->all()); 
+         return redirect()->route('projects.index')->with('success','project updated successfully');
     }
 
     /**
@@ -102,8 +96,16 @@ class ProjectController extends Controller
      */
     public function destroy(project $project)
     {
-        $project->delete();
-        return redirect()->route('project.index')->with('success','project deleted successfully');
+        /*$project->delete();
+        return redirect()->route('projects.index')->with('success','project deleted successfully');*/
 
+    }
+
+    public function softDelete(  $id)
+    {
+
+        $project = project::find($id)->delete();
+        return redirect()->route('projects.index')
+        ->with('success','project deleted successflly') ;
     }
 }

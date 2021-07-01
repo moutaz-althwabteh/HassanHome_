@@ -14,7 +14,8 @@ class OorderController extends Controller
      */
     public function index()
     {
-        return view ('project.view_orders');
+        $order = Oorder::all();
+        return view ('project.view_orders',compact('order'));
     }
 
     /**
@@ -23,9 +24,8 @@ class OorderController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view ('project.view_orders');
-
+    {        
+        return view ('project.view_orders', compact('project_data'));
     }
 
     /**
@@ -37,7 +37,7 @@ class OorderController extends Controller
     public function store(Request $request)
     {
       $order = Oorder::create($request->all());
-      return redirect()->route('order.view')->with('success','تم اضافة بيانات الطلبية بنجاح');
+      return redirect()->route('orders.index')->with('success','تم اضافة بيانات الطلبية بنجاح');
 
     }
 
@@ -60,8 +60,7 @@ class OorderController extends Controller
      */
     public function edit(Oorder $oorder)
     {
-        
-
+        return view('project.edit_order',compact('oorder'));
     }
 
     /**
@@ -73,7 +72,9 @@ class OorderController extends Controller
      */
     public function update(Request $request, Oorder $oorder)
     {
-        //
+        $oorder->update($request->all());
+        return redirect()->route('orders.index')->with('success',' تم التعديل بنجاح  ');
+
     }
 
     /**
@@ -84,6 +85,16 @@ class OorderController extends Controller
      */
     public function destroy(Oorder $oorder)
     {
-        //
+        $oorder->delete();
+        return redirect()->route('orders.index')->with('success','project deleted successfully');
+    }
+
+    public function softDelete(  $id)
+    {
+
+        $order = Oorder::find($id)->delete();
+
+        return redirect()->route('orders.index')
+        ->with('success','order deleted successflly') ;
     }
 }

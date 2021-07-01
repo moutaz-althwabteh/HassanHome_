@@ -35,7 +35,7 @@
                                     <div class="col-md-3" style=" margin-bottom:0.1px">
                                         <input type="text" name="bulding_part" class="form-control" placeholder="رقم القطعة والقسيمة   "> </div>
                                         <div class="col-md-3" style=" margin-bottom:0.1px">
-                                            <input type="text" name="project_area" class="form-control" placeholder="مساحة الأرض   "> </div>
+                                            <input type="text" name="project_flw" class="form-control" placeholder="مساحة الأرض   "> </div>
                                             <div class="col-md-3" style=" margin-bottom:0.1px">
                                                 <input type="text" name="project_emp" class="form-control" placeholder="الموظف المشرف   "> </div>
                  <div class="col-md-3" style=" margin-bottom:0.1px">

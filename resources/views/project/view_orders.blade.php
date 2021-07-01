@@ -5,6 +5,7 @@
 
 <div class="modal fade" id="basic" tabindex="-1" role="basic" aria-hidden="true">
 
+
                    <div class="modal-dialog">
                        <div class="modal-content">
                            <div class="modal-header">
@@ -21,20 +22,25 @@
                    <!-- /.modal-dialog -->
                </div>
 
-
-
-
                <div class="row">
                 <div class="col-md-12">
                   
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-primary" role="alert">
+                      {{$message}}
+                      </div>
+                    @endif
+                    
                     <!-- BEGIN EXAMPLE TABLE PORTLET-->
                     <div class="portlet box blue">
                         <div class="portlet-title">
                             <div class="caption">
                                 <i class="fa fa-globe"></i>الطلبيات  </div>
-                            <div class="tools"> </div>
+                            <div class="tools">
+                                 </div>
                         </div>
                         <div class="portlet-body">
+
                             <table class="table table-striped table-bordered table-hover" id="sample_2">
                                 <thead>
                                     <tr>
@@ -50,17 +56,28 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+
+                                    @php
+                                        $i= 0;
+                                    @endphp
+                                    @foreach ($order as $item)
+                                          
                                     <tr>
-                                        <td> Trident </td>
-                                        <td> Internet Explorer 4.0 </td>
-                                        <td> Win 95+ </td>
-                                        <td> 4 </td>
-                                        <td> X </td>
-                                        <td> X </td>
-                                        <td> X </td>
-                                        <td> X </td>
-                                        <td><span class = "glyphicon glyphicon-plus" title="تفاصيل الطلبية"></span> | <Span class="glyphicon glyphicon-remove" title = 'حذف' ></Span> | <Span class="glyphicon glyphicon-pencil " title="تعديل" >  </td>
+                                        <td>{{ ++$i }} </td>
+                                        <td>{{ $item->voucher_date }} </td>
+                                        <td> {{ $item->voucher_num }} </td>
+                                        <td> {{ $item->voucher_type }} </td>
+                                        <td> {{ $item->voucher_value }} </td>
+                                        <td> {{ $item->project_title }} </td>
+                                        <td> {{ $item->voucher_place }} </td>
+                                        <td> {{ $item->supplier_name }} </td>
+                                        <td> 
+                               <a class="btn btn-primary" href="{{ route('orders.show',$item->id)}}">عرض</a>
+                               <a  class="btn btn-success" href="{{ route('orders.edit',$item->id) }}">تعديل</a>
+                               <a  class="btn btn-danger" href="{{ route('order.delete',$item->id)}}"> حذف </a>
+                                         </td>
                                         </tr>
+                                        @endforeach
                                 </tbody>
                             </table>
                         </div>

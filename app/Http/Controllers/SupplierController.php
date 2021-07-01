@@ -39,7 +39,7 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $supplay = supplier::create($request->all());
-        return redirect()->route('suppliers.index')->with('success','تم اضافة بيانات المورد بنجاح');
+        return redirect()->route('supplier.index')->with('success','تم اضافة بيانات المورد بنجاح');
     }
 
     /**
@@ -75,8 +75,9 @@ class SupplierController extends Controller
      */
     public function update(Request $request, supplier $supplier)
     {
-        $supplay = supplier::update($request->all());
-        return redirect()->route('suppliers.index')->with('success',' تم التعديل بنجاح  ');
+        $supplier->update($request->all());
+        return redirect()->route('supplier.index')->with('success',' تم التعديل بنجاح  ');
+        
     }
 
     /**
@@ -88,5 +89,15 @@ class SupplierController extends Controller
     public function destroy(supplier $supplier)
     {
         $supplier->delete();
+        return redirect()->route('supplier.index')->with('success','project deleted successfully');
+    }
+
+    public function softDelete(  $id)
+    {
+
+        $supplier = supplier::find($id)->delete();
+
+        return redirect()->route('supplier.index')
+        ->with('success','supplier deleted successflly') ;
     }
 }

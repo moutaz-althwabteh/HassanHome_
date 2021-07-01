@@ -18,7 +18,7 @@ class project extends Model
         'bulding_mfaud_id',
         'bulding_mfaud_address',
         'bulding_part',
-        'project_area',
+        'project_flw',
         'project_emp',
         'project_type',
         'project_status',

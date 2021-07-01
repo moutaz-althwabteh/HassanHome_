@@ -3,8 +3,6 @@
 @section('content')
 <div class="row" >
 
-    
-
        <div class="portlet box blue">
         <div class="portlet-title">
             <div class="caption">
@@ -41,13 +39,9 @@
                             <td class="numeric">{{ $item->phone }}</td>
                            <td class="numeric">{{ $item->email }}</td>
                            <td  class="numeric"> 
-                               <a href="{{ route('supplier.edit',$item->id) }}">تعديل</a>
-                               <a href="{{ route('supplier.show',$item->id) }}">حذف</a>
-                               <form  action="{{ route('supplier.destroy',$item->id) }}">
-                                   @csrf
-                                   @method('DELETE')
-                                   <button type="submit" class=" btn btn-danger">حذف</button>
-                               </form>
+                               <a class="btn btn-primary" href="{{ route('supplier.show',$item->id)}}">عرض</a>
+                               <a  class="btn btn-success" href="{{ route('supplier.edit',$item->id) }}">تعديل</a>
+                               <a  class="btn btn-danger" href="{{ route('supplier.delete',$item->id)}}"> حذف </a>
                         </td>
 
                        </tr>

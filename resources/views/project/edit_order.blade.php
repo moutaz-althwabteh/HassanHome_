@@ -17,8 +17,10 @@
            </div>
            
            <div class="portlet-body form">
-           <form role="form" method="post" action="{{ route('orders.store') }}">
-               @csrf
+            <form role="form" method="post" action="{{ route('orders.update',$oorder->id) }}">
+                @csrf
+                @method('PUT')
+
                    <div class="row" style="padding:20px">
                            <div class="col-md-3">
                            <input type="text" name="voucher_date" class="form-control" placeholder="تاريخ الفاتورة"> </div>
@@ -31,9 +33,8 @@
                        <div class="col-md-3">
                         <select class="form-control select2me" name="project_title">
                             <option value="">اختار...</option>
-                            @foreach ($project as $item)
-                            <option value="1"> {{$item->project_name }} </option>
-                            @endforeach
+                            <option value="1">حسان 1 </option>
+                            <option value="2">حسان 2</option>
                         </select>                 
                        </div>
                         <div class="col-md-3">

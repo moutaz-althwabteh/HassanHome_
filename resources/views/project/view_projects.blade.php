@@ -12,23 +12,38 @@
         <table class="table table-striped table-bordered table-hover" id="sample_2">
             <thead>
                 <tr>
+                    <th> #  </th>
                     <th> اسم المشروع </th>
                     <th> المالك </th>
                     <th>بيانات المفوض</th>
-                    <th> تفاصيل المشروع</th>
                     <th> ادوات التحكم</th>
                 </tr>
             </thead>
             <tbody>
-
+                @php
+                    $i=0;
+                @endphp
+                @foreach ($project as $item)
+            
                 <tr>
-                    <td> حسان 1 </td>
-                    <td> حسان هوم </td>
-                    <td> محمد محمد 957475136 </td>
-                    <td> رقم القطعة 15، رقم القسيمة 223، مساحة الأرض 600 م </td>
-                    <td  class="numeric"><span class = "glyphicon glyphicon-plus" title="اضافة شقة"></span> | <Span class="glyphicon glyphicon-remove" title="حذف"></Span> | <Span class="glyphicon glyphicon-pencil " title="تعديل">  </td>
+                    <td> {{ ++$i; }}</td>
+                    <td> {{  $item->project_name }}{{ $item->project_num }}</td>
+                    <td>{{  $item->Project_owner }} </td>
+                    <td>{{  $item->Project_mfawd }} </td>
+                    <td> 
+                        <a href="{{ route('Project.edit',$item->id) }}"/>تعديل</a>
+                        <a href="{{ route('Project.show',$item->id) }}"/>عرض</a>
+                        <form action="{{ route('Project.destroy',$item->id) }}"> 
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">حذف</button></form>
+                    </td>
+
                     </tr>
                     @endforeach
+
+
+
             </tbody>
         </table>
     </div>

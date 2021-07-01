@@ -76,16 +76,16 @@
                         <ul class="dropdown-menu" role="menu">
                             <li>
                                 <a href="{{ url ('/add_project')}}">
-                                    <i class="icon-docs"></i> مشروع جديد </a>
+                                    <i class="icon-docs"></i> اضافة مشروع جدد</a>
                             </li>
                             <li>
                                 <a href="{{ url ('/add_supplier')}}">
-                                    <i class="icon-calendar"></i> مورد </a>
+                                    <i class="icon-calendar"></i> اضافة مورد جديد </a>
                             </li>
 
                             <li>
                                 <a href="{{ url ('/add_order')}}">
-                                    <i class="icon-tag"></i> طلبية </a>
+                                    <i class="icon-tag"></i> اضافة طلبية جديدة </a>
                             </li>
                         </ul>
                     </div>
@@ -192,7 +192,7 @@
                         
                         
                         <li class="nav-item  ">
-                            <a href="{{url('/view_projects')}}" class="nav-link nav-toggle">
+                            <a href="{{url('/projects')}}" class="nav-link nav-toggle">
                                 <i class="icon-docs"></i>
                                 <span class="title">المشاريع</span>
                                 <span class="arrow"></span>
@@ -208,7 +208,7 @@
                         </li>
 
                         <li class="nav-item  ">
-                            <a href="{{ url('/view_orders') }}" class="nav-link nav-toggle">
+                            <a href="{{ url('/orders') }}" class="nav-link nav-toggle">
                                 <i class="icon-envelope-open"></i>
                                 <span class="title"> الطلبيات</span>
                                 <span class="arrow"></span>
