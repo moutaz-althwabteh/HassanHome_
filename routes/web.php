@@ -47,3 +47,12 @@ Route::get('/view_projects', function () {
 Route::resource('orders', 'OorderController');
 
 Route::resource('supplier', 'SupplierController');
+
+Route::get('supplier/soft/delete/{id}', 'SupplierController@softDelete')
+->name('supplier.delete');
+
+Route::get('order/soft/delete/{id}', 'OorderController@softDelete')
+->name('order.delete');
+
+Route::get('project/soft/delete/{id}', 'ProjectController@softDelete')
+->name('project.delete');
