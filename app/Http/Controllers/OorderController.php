@@ -58,8 +58,9 @@ class OorderController extends Controller
      * @param  \App\Models\Oorder  $oorder
      * @return \Illuminate\Http\Response
      */
-    public function edit(Oorder $oorder)
-    {
+    public function edit($id)
+    {   
+        $oorder = Oorder::findOrFail($id);
         return view('project.edit_order',compact('oorder'));
     }
 
