@@ -40,7 +40,7 @@
                                                 <input type="text" name="project_emp" class="form-control" placeholder="الموظف المشرف   "> </div>
                  <div class="col-md-3" style=" margin-bottom:0.1px">
                          <select class="form-control select2me" name="project_type">
-                             <option value="">اختار...</option>
+                             <option value="0">نوع المشروع</option>
                              <option value="1">استثماري </option>
                              <option value="2">مقاولة</option>
                          </select>
@@ -55,7 +55,7 @@
                                 <input type="text" name="project_budget" class="form-control" placeholder=" الموازنة بالأيام "> </div>
                                 <div class="col-md-3" style=" margin-bottom:0.1px">
                                     <select class="form-control select2me" name="project_budget_curr">
-                                        <option value="">اختار...</option>
+                                        <option value="0">العملة</option>
                                         <option value="1">دولار </option>
                                         <option value="2">دينار</option>
                                         <option value="3">شيكل</option>

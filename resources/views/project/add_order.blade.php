@@ -19,47 +19,48 @@
            <div class="portlet-body form">
            <form role="form" method="post" action="{{ route('orders.store') }}">
                @csrf
+               
                    <div class="row" style="padding:20px">
-                           <div class="col-md-3">
+                           <div class="col-md-3 form-group">
                            <input type="text" name="voucher_date" class="form-control" placeholder="تاريخ الفاتورة"> </div>
-                       <div class="col-md-3>
-                           <input type="text" name="voucher_num" class="form-control" placeholder="رقم الإيصال"> </div>
-                           <div class="col-md-3">
-                            <input type="text" name="voucher_type" class="form-control" placeholder="نوع الصنف "> </div>
-                            <div class="col-md-3">
-                                <input type="text" name="voucher_value" class="form-control" placeholder="قيمة الطلبية "> </div>
-                       <div class="col-md-3">
-                        <select class="form-control select2me" name="project_title">
-                            <option value="">اختار...</option>
-                            @foreach ($project as $item)
-                            <option value="1"> {{$item->project_name }} </option>
-                            @endforeach
+                       <div class="col-md-3 form-group" >
+                           <input type="text" name="voucher_num" class="form-control" placeholder="رقم سند القبض"> </div>
+                            <div class="col-md-3 form-group">
+                       <input type="text" name="voucher_value" class="form-control" placeholder="قيمة الطلبية "> </div>
+                       <div class="col-md-3 form-group">
+                        <select class="form-control select2me" name="project_title" >
+                            <option value="0">اسم المشروع</option>
+                            <option value="1"> حسان 1 </option>
+                            <option value="2"> حسان 2 </option>
                         </select>                 
                        </div>
-                        <div class="col-md-3">
-                                <select class="form-control select2me" name="voucher_place">
-                                    <option value="">اختار...</option>
-                                    <option value="1">توريد مباشر</option>
-                                    <option value="2">المخازن</option>
-                                </select>
-                            </div>           
-                               <div class="col-md-3">
-                            <input type="text" name="voucher_desc" class="form-control" placeholder="وصف الطلبية"> </div>
-                        <div class="col-md-3">
-                           <div class="input-group input-small">
+
+                       <div class="col-md-3 form-group">
+                        <select class="form-control select2me" name="project_title" >
+                            <option value="0">الآلية </option>
+                            <option value="1"> توريد مباشر </option>
+                            <option value="2"> المخازن  </option>
+                        </select>                 
+                       </div>
+            
+                        <div class="col-md-3 form-group">
                             <select class="form-control select2me" name="supplier_name">
-                                <option value="">اختار...</option>
+                                <option value="0">اسم المورد</option>
                                 <option value="1">مورد 1 </option>
                                 <option value="2">مورد 2</option>
                             </select>
-                              <span class="input-group-btn">
-                                   <button class="btn blue" type="submit" name="b1">حفـــظ</button>
-                               </span>
-                           </div>
-                           <!-- /input-group -->
                        </div>
+                       <div class="col-md-3 form-group">
+                        <input type="text" name="voucher_desc" class="form-control" placeholder="وصف الطلبية"> </div>
+
+                       <div class="col-md-3 ">
+                        <div class="input-group input-small">
+                        <input type="text" name="voucher_type" class="form-control" placeholder="ملاحظات  "> 
+                        <span class="input-group-btn">
+                            <button class="btn blue" type="submit" name="b1">حفـــظ</button>
+                        </span>
+                    </div>
                    </div>
-                      <div style="float:left;">   </div>      
                            </form>
                            <!-- END FORM-->
                        </div>

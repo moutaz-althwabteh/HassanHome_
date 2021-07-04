@@ -46,12 +46,12 @@
                                     <tr>
                                         <th>  </th>
                                         <th> التاريخ </th>
-                                        <th> رقم الايصال </th>
-                                        <th> نوع الصنف </th>
+                                        <th> رقم سند القبض </th>
                                         <th> قيمة الطلبية </th>
                                         <th>مكان التوريد</th>
                                         <th> اسم المشروع</th>
                                         <th>اسم المورد </th>
+                                        <th> ملاحظات  </th>
                                         <th>ادوات التحكم  </th>
                                     </tr>
                                 </thead>
@@ -66,13 +66,13 @@
                                         <td>{{ ++$i }} </td>
                                         <td>{{ $item->voucher_date }} </td>
                                         <td> {{ $item->voucher_num }} </td>
-                                        <td> {{ $item->voucher_type }} </td>
                                         <td> {{ $item->voucher_value }} </td>
                                         <td> {{ $item->project_title }} </td>
                                         <td> {{ $item->voucher_place }} </td>
                                         <td> {{ $item->supplier_name }} </td>
+                                        <td> {{ $item->voucher_type }} </td>
                                         <td> 
-                               <a class="btn btn-primary" href="{{ route('orders.show',$item->id)}}">عرض</a>
+                               <a class="btn btn-primary" href="{{ route('order_details.create',  ['id' =>$item->id])}}">اضافة طلبية</a>
                                <a  class="btn btn-success" href="{{ route('orders.edit',$item->id) }}">تعديل</a>
                                <a  class="btn btn-danger" href="{{ route('order.delete',$item->id)}}"> حذف </a>
                                          </td>

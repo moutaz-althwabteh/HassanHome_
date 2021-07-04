@@ -56,3 +56,9 @@ Route::get('order/soft/delete/{id}', 'OorderController@softDelete')
 
 Route::get('project/soft/delete/{id}', 'ProjectController@softDelete')
 ->name('project.delete');
+//Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::resource('order_details', 'OrderDetailsController');

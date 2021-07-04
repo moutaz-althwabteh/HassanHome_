@@ -20,13 +20,13 @@
         @method('PUT')
 
             <div class="row" style="padding:5px">
-                    <div class="col-md-3" style=" margin-bottom:0.1px">
+                    <div class="col-md-3 form-group" style=" margin-bottom:0.1px">
                     <input type="text"  name="project_name" value="{{ $project->project_name }}" class="form-control" placeholder="اسم المشروع "> </div>
-                <div class="col-md-3" style=" margin-bottom:0.1px">
+                <div class="col-md-3 form-group"  style=" margin-bottom:0.1px">
                     <input type="text" value="{{ $project->project_num }}" name="project_num" class="form-control" placeholder="رقم المبنى"> </div>
-                    <div class="col-md-3" style=" margin-bottom:0.1px">
+                    <div class="col-md-3 form-group" style=" margin-bottom:0.1px">
                      <input type="text" name="Project_gps"  value="{{ $project->Project_gps }}" class="form-control" placeholder="الإحداثيات  "> </div>
-                     <div class="col-md-3" style=" margin-bottom:0.1px">
+                     <div class="col-md-3 form-group" style=" margin-bottom:0.1px">
                          <input type="text" name="Project_owner" value="{{ $project->Project_owner }}" class="form-control" placeholder="مالك العقار  "> </div>
                          <div class="col-md-3" style=" margin-bottom:0.1px">
                             <input type="text" name="Project_mfawd" value="{{ $project->Project_mfawd }}" class="form-control" placeholder=" المفوض  "> </div>

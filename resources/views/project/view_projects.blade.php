@@ -32,7 +32,7 @@
                     <td>{{  $item->Project_mfawd }} </td>
                     <td> 
                         <a href="{{ route('Project.edit',$item->id) }}"/>تعديل</a>
-                        <a href="{{ route('Project.show',$item->id) }}"/>عرض</a>
+                        <a href="{{ route('Project.show',$item->id) }}"/>اضافة</a>
                         <form action="{{ route('Project.destroy',$item->id) }}"> 
                             @csrf
                             @method('DELETE')
