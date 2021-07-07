@@ -214,6 +214,14 @@
                                 <span class="arrow"></span>
                             </a>
                         </li>
+
+                        <li class="nav-item  ">
+                            <a href="{{ url('/flats') }}" class="nav-link nav-toggle">
+                                <i class="icon-envelope-open"></i>
+                                <span class="title"> الشقق</span>
+                                <span class="arrow"></span>
+                            </a>
+                        </li>
                       
                     </ul>
                     <!-- END SIDEBAR MENU -->

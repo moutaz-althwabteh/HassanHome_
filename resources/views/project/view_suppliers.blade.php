@@ -39,7 +39,7 @@
                             <td class="numeric">{{ $item->phone }}</td>
                            <td class="numeric">{{ $item->email }}</td>
                            <td  class="numeric"> 
-                               <a class="btn btn-primary" href="{{ route('supplier.show',$item->id)}}">عرض</a>
+                               <a class="btn btn-primary" href="{{ route('pays.create',$item->id)}}">اضافة دفعة</a>
                                <a  class="btn btn-success" href="{{ route('supplier.edit',$item->id) }}">تعديل</a>
                                <a  class="btn btn-danger" href="{{ route('supplier.delete',$item->id)}}"> حذف </a>
                         </td>

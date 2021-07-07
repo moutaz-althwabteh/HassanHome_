@@ -62,3 +62,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('order_details', 'OrderDetailsController');
+Route::resource('flats', 'FlatController');
+Route::resource('pays', 'PaysController');
+
+
