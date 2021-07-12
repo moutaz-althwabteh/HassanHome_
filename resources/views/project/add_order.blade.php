@@ -24,7 +24,7 @@
                            <div class="col-md-3 form-group">
                            <input type="text" name="voucher_date" class="form-control" placeholder="تاريخ الفاتورة"> </div>
                        <div class="col-md-3 form-group" >
-                           <input type="text" name="voucher_num" class="form-control" placeholder="رقم سند القبض"> </div>
+                           <input type="text" name="voucher_num" class="form-control" placeholder="رقم الطلبية"> </div>
                             <div class="col-md-3 form-group">
                        <input type="text" name="voucher_value" class="form-control" placeholder="قيمة الطلبية "> </div>
                        <div class="col-md-3 form-group">

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddFildesToFlatsTable extends Migration
+class ChangeDateFieldToPaysTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AddFildesToFlatsTable extends Migration
      */
     public function up()
     {
-        Schema::table('flats', function (Blueprint $table) {
-            //
+        Schema::table('pays', function (Blueprint $table) {
+            $table->string('date', 255)->nullable()->change();
+
         });
     }
 
@@ -25,7 +26,7 @@ class AddFildesToFlatsTable extends Migration
      */
     public function down()
     {
-        Schema::table('flats', function (Blueprint $table) {
+        Schema::table('pays', function (Blueprint $table) {
             //
         });
     }

@@ -32,7 +32,7 @@
                     <td>{{  $item->Project_owner }} </td>
                     <td>{{  $item->Project_mfawd }} </td>
                     <td> 
-                        <a class="btn btn-primary" href="{{ route('projects.show',$item->id)}}">اضافة شقة</a>
+                        <a class="btn btn-primary" href="{{ route('projects.show',$item->id)}}"> عرض</a>
                         <a  class="btn btn-success" href="{{ route('projects.edit',$item->id) }}">تعديل</a>
                         <a  class="btn btn-danger" href="{{ route('project.delete',$item->id)}}"> حذف </a>
                     </td>

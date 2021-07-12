@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFlatsTable extends Migration
+class ChangePaystatFieldToOordersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateFlatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('flats', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+        Schema::table('suppliers', function (Blueprint $table) {
+            $table->string('type', 255)->nullable()->change();
+
         });
     }
 
@@ -26,6 +26,8 @@ class CreateFlatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flats');
+        Schema::table('suppliers', function (Blueprint $table) {
+            //
+        });
     }
 }

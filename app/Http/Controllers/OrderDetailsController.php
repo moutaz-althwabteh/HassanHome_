@@ -48,7 +48,7 @@ class OrderDetailsController extends Controller
      */
     public function show(Order_details $order_details)
     {
-        //
+        return view('project.show_order_details', compact('order_details'));
     }
 
     /**

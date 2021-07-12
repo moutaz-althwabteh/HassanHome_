@@ -8,7 +8,7 @@
         <div class="portlet box blue ">
                    <div class="portlet-title">
                        <div class="caption">
-                           <i class="fa fa-gift"></i> اضافة بيانات المورد </div>
+                           <i class="fa fa-gift"></i> اضافة بيانات المشروع </div>
                        <div class="tools">
                            <a href="" class="collapse"> </a>
                            <a href="" class="remove"> </a>

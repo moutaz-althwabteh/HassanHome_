@@ -87,6 +87,11 @@
                                 <a href="{{ url ('/add_order')}}">
                                     <i class="icon-tag"></i> اضافة طلبية جديدة </a>
                             </li>
+
+                            <li>
+                                <a href="{{ url ('/add_flat')}}">
+                                    <i class="icon-tag"></i> اضافة شقة جديدة </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -217,7 +222,7 @@
 
                         <li class="nav-item  ">
                             <a href="{{ url('/flats') }}" class="nav-link nav-toggle">
-                                <i class="icon-envelope-open"></i>
+                                <i class="icon-home"></i>
                                 <span class="title"> الشقق</span>
                                 <span class="arrow"></span>
                             </a>
@@ -318,21 +323,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- END THEME PANEL -->
-                                 <div class="page-bar">
-                        <ul class="page-breadcrumb">
-                            <li>
-                                <i class="icon-home"></i>
-                                <a href="index.html">الرئيسية</a>
-                                <i class="fa fa-angle-right"></i>
-                            </li>
-                            <li>
-                                <span>لوحة التحكم</span>
-                            </li>
-                        </ul>
-                        
-                    </div>
-                    <!-- END PAGE HEADER-->
+            
                     
                     <div class="row">
                          <div class="col-md-12 col-sm-12">

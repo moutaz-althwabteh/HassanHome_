@@ -46,7 +46,7 @@
                                     <tr>
                                         <th>  </th>
                                         <th> التاريخ </th>
-                                        <th> رقم سند القبض </th>
+                                        <th> رقم الطلبية </th>
                                         <th> قيمة الطلبية </th>
                                         <th>مكان التوريد</th>
                                         <th> اسم المشروع</th>
@@ -65,7 +65,7 @@
                                     <tr>
                                         <td>{{ ++$i }} </td>
                                         <td>{{ $item->voucher_date }} </td>
-                                        <td> {{ $item->voucher_num }} </td>
+                                        <td> <a href="{{ route('order_details.show', $item->id)}}"> {{ $item->voucher_num }} </a></td>
                                         <td> {{ $item->voucher_value }} </td>
                                         <td> {{ $item->project_title }} </td>
                                         <td> {{ $item->voucher_place }} </td>

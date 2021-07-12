@@ -14,7 +14,8 @@ class FlatController extends Controller
      */
     public function index()
     {
-        //
+        $flat = Flat::all();
+        return view('project.view_flats',compact('flat'));
     }
 
     /**
@@ -24,7 +25,7 @@ class FlatController extends Controller
      */
     public function create()
     {
-        //
+        return view('project.add_flat');
     }
 
     /**
@@ -35,7 +36,8 @@ class FlatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $flat = Flat::create($request->all());
+       return redirect()->route('flats.index')->with('success','تم اضافة بيانات الشقة بنجاح');
     }
 
     /**
@@ -69,7 +71,8 @@ class FlatController extends Controller
      */
     public function update(Request $request, Flat $flat)
     {
-        //
+        $flat->update($request->all());
+        return redirect()->route('flats.index')->with('success',' تم التعديل بنجاح  ');
     }
 
     /**
@@ -80,6 +83,16 @@ class FlatController extends Controller
      */
     public function destroy(Flat $flat)
     {
-        //
+        $flat->delete();
+        return redirect()->route('flats.index')->with('success','project deleted successfully');
+    }
+
+    public function softDelete(  $id)
+    {
+
+        $supplier = Flat::find($id)->delete();
+
+        return redirect()->route('flats.index')
+        ->with('success','flat deleted successflly') ;
     }
 }

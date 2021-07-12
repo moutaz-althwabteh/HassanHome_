@@ -33,13 +33,13 @@
                        <tr>
                            <td class="numeric">{{ ++$i }}</td>
                            <td class="numeric">{{ $item->date }}</td>
-                           <td class="numeric">{{ $item->s_name }}</td>
+                           <td class="numeric"><a href="{{ route('pays.show',[$item->id])}}">{{ $item->s_name }}</a></td>
                            <td class="numeric">{{ $item->type }}</td>
                            <td class="numeric">{{ $item->mobile }}</td>
-                            <td class="numeric">{{ $item->phone }}</td>
+                            <td class="numeric">{{$item->phone }}</td>
                            <td class="numeric">{{ $item->email }}</td>
                            <td  class="numeric"> 
-                               <a class="btn btn-primary" href="{{ route('pays.create',$item->id)}}">اضافة دفعة</a>
+                               <a class="btn btn-primary" href="{{ route('pays.create',['id'=>$item->id])}}">اضافة دفعة</a>
                                <a  class="btn btn-success" href="{{ route('supplier.edit',$item->id) }}">تعديل</a>
                                <a  class="btn btn-danger" href="{{ route('supplier.delete',$item->id)}}"> حذف </a>
                         </td>

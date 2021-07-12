@@ -24,7 +24,7 @@ class pays extends Model
 
         public function suppliers()
         {
-            return $this->belongsTo('App\supplier', 's_id')
+            return $this->belongsTo('App\supplier', 's_id');
         
     }
 }

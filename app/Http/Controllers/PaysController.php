@@ -35,7 +35,8 @@ class PaysController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pay = pays::create($request->all());
+        return redirect()->route('pays.index')->with('success','تم اضافة بيانات الدفعة بنجاح');
     }
 
     /**
@@ -46,7 +47,7 @@ class PaysController extends Controller
      */
     public function show(pays $pays)
     {
-        //
+        return view('project.show_pays', compact('pays'));
     }
 
     /**

@@ -36,6 +36,10 @@ Route::get('/add_order', function () {
     return view('project.add_order');
 });
 
+Route::get('/add_flat', function () {
+    return view('project.add_flat');
+});
+
 Route::get('/view_projects', function () {
     return view('project.view_projects');
 });
@@ -56,6 +60,8 @@ Route::get('order/soft/delete/{id}', 'OorderController@softDelete')
 
 Route::get('project/soft/delete/{id}', 'ProjectController@softDelete')
 ->name('project.delete');
+Route::get('flat/soft/delete/{id}', 'FlatController@softDelete')
+->name('flats.delete');
 //Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -65,4 +71,7 @@ Route::resource('order_details', 'OrderDetailsController');
 Route::resource('flats', 'FlatController');
 Route::resource('pays', 'PaysController');
 
+Route::get('/add_flat', function () {
+    return view('project.add_draft');
+});
 
