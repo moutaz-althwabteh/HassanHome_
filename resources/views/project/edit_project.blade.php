@@ -41,12 +41,12 @@
                                             <div class="col-md-3" style=" margin-bottom:0.1px">
                                                 <input type="text" name="project_emp" value="{{ $project->project_emp }}" class="form-control" placeholder="الموظف المشرف   "> </div>
                  <div class="col-md-3" style=" margin-bottom:0.1px">
-                         <select class="form-control select2me" name="project_type">
-                             <option value="">اختار...</option>
-                             <option value="{{ $project->project_type }}"  @if ($project->project_type == '1')
+                         <select class="form-control" name="project_type">
+                             <option value="">اختر ..</option>
+                             <option value="1"  @if ($project->project_type == '1')
                                 selected="selected"
                              @endif>استثماري</option>
-                             <option value="{{ $project->project_type }}"  @if ($project->project_type == '2')
+                             <option value="2"  @if ($project->project_type == '2')
                                 selected="selected"
                              @endif>مقاولة</option>
                             </select>
@@ -61,11 +61,11 @@
                                 <input type="text" name="project_budget" value="{{ $project->project_budget }}" class="form-control" placeholder=" الموازنة بالأيام "> </div>
                                 <div class="col-md-3" style=" margin-bottom:0.1px">
                                     <select class="form-control select2me"  name="project_budget_curr" >
-                                        <option value="">اختار...</option>
-                                        <option value="{{ $project->project_budget_curr }}"  {{$project->project_budget_curr == '1'  ? 'selected' : ''}}>دولار</option>
-                                        <option value="{{ $project->project_budget_curr }}"  {{$project->project_budget_curr == '2'  ? 'selected' : ''}}>دينار</option>
-                                        <option value="{{ $project->project_budget_curr }}"  {{$project->project_budget_curr == '3'  ? 'selected' : ''}}>شيكل</option>
-                                        <option value="{{ $project->project_budget_curr }}"  {{$project->project_budget_curr == '4' ? 'selected' : ''}}>يورو</option>
+                                        <option value="">اختر...</option>
+                                        <option value="1"  {{$project->project_budget_curr == '1'  ? 'selected' : ''}}>دولار</option>
+                                        <option value="2"  {{$project->project_budget_curr == '2'  ? 'selected' : ''}}>دينار</option>
+                                        <option value="3"  {{$project->project_budget_curr == '3'  ? 'selected' : ''}}>شيكل</option>
+                                        <option value="4"  {{$project->project_budget_curr == '4' ? 'selected' : ''}}>يورو</option>
 
                                     </select>
                                 </div>  

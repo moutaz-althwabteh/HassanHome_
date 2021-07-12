@@ -33,7 +33,7 @@
                        <tr>
                            <td class="numeric">{{ ++$i }}</td>
                            <td class="numeric">{{ $item->date }}</td>
-                           <td class="numeric"><a href="{{ route('pays.show',[$item->id])}}">{{ $item->s_name }}</a></td>
+                           <td class="numeric"><a href="{{ route('supplier.pays',[$item->id])}}">{{ $item->s_name }}</a></td>
                            <td class="numeric">{{ $item->type }}</td>
                            <td class="numeric">{{ $item->mobile }}</td>
                             <td class="numeric">{{$item->phone }}</td>

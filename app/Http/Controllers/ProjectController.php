@@ -27,7 +27,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('project.form');
+        return view('project.add_project');
     }
 
     /**
@@ -83,7 +83,6 @@ class ProjectController extends Controller
      */
     public function update(Request $request, project $project)
     {
-     
          $project->update($request->all()); 
          return redirect()->route('projects.index')->with('success','project updated successfully');
     }

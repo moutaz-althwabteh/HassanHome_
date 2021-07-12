@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Flat;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class FlatController extends Controller
 {
@@ -94,5 +95,41 @@ class FlatController extends Controller
 
         return redirect()->route('flats.index')
         ->with('success','flat deleted successflly') ;
+    }
+
+    public function add_draft($id)
+    {
+        $flat = Flat::find($id);
+        // بنجيب باقي قسمة ربح الشقة المدخل على عدد الأشهر المدخل 
+        // $x = باقي القسمة
+
+
+
+
+
+        for ($i=0; $i <$flat->no_monthes ; $i++) { 
+             // تاريخ الاستحقاق = 
+             //$installment_date = $flat->installment_sdate->addMonth($i);
+             if($i == $flat->no_monthes-1) // اخر للووب اخر شهر
+             {
+                 if($x==0)// قيمة الدفعة هيا القيمة المتفق عليها 
+                 {
+                    
+                 }else{
+                     //قيمة الدفعة هيا باقي القسمة
+
+                 }
+             }
+             // insert(installment_date,قيمة الدفعة,نوع السدادا),;حالة الدفعة;
+
+             $draft = new Draft();
+             $draft->flat_id = $flat->id;
+             $draft->installment_date = $installment_date;
+             ... 
+             ...
+             ...
+             $draft->save();
+        }
+        
     }
 }

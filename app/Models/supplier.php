@@ -9,6 +9,8 @@ class supplier extends Model
 {
     use HasFactory;
 
+    const SUPPLY_DIRECT = 1;
+    const SUPPLY_STORE  = 2;
     protected $fillable =[
         'date',
         's_name',
@@ -17,4 +19,9 @@ class supplier extends Model
         'phone',
         'email',
     ];
+
+    public function pays()
+    {
+        return $this->hasMany(Pay::class,'s_id');
+    }
 }

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\pays;
+use App\Models\Pay;
+use App\Models\supplier;
 use Illuminate\Http\Request;
 
 class PaysController extends Controller
@@ -35,7 +36,7 @@ class PaysController extends Controller
      */
     public function store(Request $request)
     {
-        $pay = pays::create($request->all());
+        $pay = Pay::create($request->all());
         return redirect()->route('pays.index')->with('success','تم اضافة بيانات الدفعة بنجاح');
     }
 
@@ -45,9 +46,11 @@ class PaysController extends Controller
      * @param  \App\Models\pays  $pays
      * @return \Illuminate\Http\Response
      */
-    public function show(pays $pays)
+    public function show($supplier_id)
     {
-        return view('project.show_pays', compact('pays'));
+        //$supplier = supplier::with('pays')->find($supplier_id);
+        // $pays = Pay::where('s_id',$supplier_id)->get();
+        // return view('project.show_pays', compact('pays'));
     }
 
     /**

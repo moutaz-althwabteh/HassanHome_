@@ -22,27 +22,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::resource('projects', 'ProjectController');
+    Route::resource('projects', 'ProjectController');
 
-Route::get('/add_project', function () {
-    return view('project.add_project');
-});
-
-Route::get('/add_supplier', function () {
-    return view('project.add_supplier');
-});
-
-Route::get('/add_order', function () {
-    return view('project.add_order');
-});
-
-Route::get('/add_flat', function () {
-    return view('project.add_flat');
-});
-
-Route::get('/view_projects', function () {
-    return view('project.view_projects');
-});
 
 // Route::get('/view_orders', function () {
 //     return view('project.view_orders');
@@ -51,7 +32,7 @@ Route::get('/view_projects', function () {
 Route::resource('orders', 'OorderController');
 
 Route::resource('supplier', 'SupplierController');
-
+Route::get('supplier/show_pays/{id}','SupplierController@show_pays')->name('supplier.pays');
 Route::get('supplier/soft/delete/{id}', 'SupplierController@softDelete')
 ->name('supplier.delete');
 

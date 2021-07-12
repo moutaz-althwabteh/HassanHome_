@@ -29,14 +29,17 @@
                        <input type="text" name="voucher_value" class="form-control" placeholder="قيمة الطلبية "> </div>
                        <div class="col-md-3 form-group">
                         <select class="form-control select2me" name="project_title" >
-                            <option value="0">اسم المشروع</option>
-                            <option value="1"> حسان 1 </option>
-                            <option value="2"> حسان 2 </option>
-                        </select>                 
+                            <option value="">اختر</option>
+                            <?php foreach ($projects as $project) {
+                                ?>
+                                <option value="{{$project->id}}">{{$project->project_name}}</option>
+                                <?php
+                            }?>
+                        </select>               
                        </div>
 
                        <div class="col-md-3 form-group">
-                        <select class="form-control select2me" name="project_title" >
+                        <select class="form-control select2me voucher_place" name="voucher_place" >
                             <option value="0">الآلية </option>
                             <option value="1"> توريد مباشر </option>
                             <option value="2"> المخازن  </option>
@@ -67,5 +70,10 @@
        </div>
        </div>
        </div>
-       
+       <script>
+           $(".voucher_place").select2({
+            placeholder: "اختر الالية",
+            allowClear: true
+        });
+       </script>
    @endsection

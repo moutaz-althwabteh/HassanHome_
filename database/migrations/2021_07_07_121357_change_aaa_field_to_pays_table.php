@@ -14,9 +14,9 @@ class ChangeAaaFieldToPaysTable extends Migration
     public function up()
     {
         Schema::table('pays', function (Blueprint $table) {
-            $table->string('payment_type', 255)->nullable()->change();
-            $table->string('payment_status', 255)->nullable()->change();
-            $table->date('check_date ', 255)->nullable()->change();
+            // $table->string('payment_type', 255)->nullable()->change();
+            // $table->string('payment_status', 255)->nullable()->change();
+            // $table->date('check_date ', 255)->nullable()->change();
 
         });
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Oorder;
+use App\Models\Project;
+use App\Models\supplier;
 use Illuminate\Http\Request;
 
 class OorderController extends Controller
@@ -14,7 +16,8 @@ class OorderController extends Controller
      */
     public function index()
     {
-        $order = Oorder::all();
+        $order = Oorder::with('project')->get();
+        // dd($order->toArray());
         return view ('project.view_orders',compact('order'));
     }
 
@@ -25,7 +28,9 @@ class OorderController extends Controller
      */
     public function create()
     {        
-        return view ('project.view_orders', compact('project_data'));
+        $projects = Project::all();
+        $suppliers = supplier::all();
+        return view ('project.add_order', compact('projects','suppliers'));
     }
 
     /**

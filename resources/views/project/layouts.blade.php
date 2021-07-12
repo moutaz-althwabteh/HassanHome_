@@ -75,7 +75,7 @@
                         </button>
                         <ul class="dropdown-menu" role="menu">
                             <li>
-                                <a href="{{ url ('/add_project')}}">
+                                <a href="{{ route('projects.create')}}">
                                     <i class="icon-docs"></i> اضافة مشروع جدد</a>
                             </li>
                             <li>

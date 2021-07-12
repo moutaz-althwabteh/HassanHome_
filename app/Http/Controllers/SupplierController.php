@@ -92,11 +92,16 @@ class SupplierController extends Controller
         return redirect()->route('supplier.index')->with('success','project deleted successfully');
     }
 
+    public function show_pays($id)
+    {
+        $supplier = supplier::with('pays')->find($id);//جيب المورد اللي رقفمو id مع كل الفواتير تاعتو
+
+        return view('project.show_pays',compact('supplier'));
+    }
     public function softDelete(  $id)
     {
 
         $supplier = supplier::find($id)->delete();
-
         return redirect()->route('supplier.index')
         ->with('success','supplier deleted successflly') ;
     }

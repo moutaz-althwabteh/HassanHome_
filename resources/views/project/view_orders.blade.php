@@ -67,8 +67,8 @@
                                         <td>{{ $item->voucher_date }} </td>
                                         <td> <a href="{{ route('order_details.show', $item->id)}}"> {{ $item->voucher_num }} </a></td>
                                         <td> {{ $item->voucher_value }} </td>
-                                        <td> {{ $item->project_title }} </td>
                                         <td> {{ $item->voucher_place }} </td>
+                                        <td> {{ $item->project->project_name }} </td>
                                         <td> {{ $item->supplier_name }} </td>
                                         <td> {{ $item->voucher_type }} </td>
                                         <td> 

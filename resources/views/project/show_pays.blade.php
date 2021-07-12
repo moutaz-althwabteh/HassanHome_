@@ -29,18 +29,24 @@
                 <tbody>
 
                     <tr>
-                        <td class="numeric">{{ $pays->date }}</td>
-                        <td class="numeric">{{ $pays->payment_receipt }}</td>
-                        <td class="numeric">{{ $pays->payment_type }}</td>
-                        <td class="numeric">{{ $pays->total }} )({{ $pays->carr_type }})</td>
-                        <td class="numeric">{{ $pays->payment_status }}</td>
-                         <td class="numeric">{{$pays->cashier }}</td>
-                        <td class="numeric">{{ $pays->check_date }}</td>
-                        <td  class="numeric"> {{ $pays->check_date }}</td>
-                        <td  class="numeric"> {{ $pays->notes }}</td>
-
+                        {{$i =0}}
+                        @foreach ($supplier->pays as $pay)
+                            <td class="numeric">{{ $pay->date }}</td>
+                            <td class="numeric">{{ $pay->payment_receipt }}</td>
+                            <td class="numeric">{{ $pay->payment_type }}</td>
+                            <td class="numeric">{{ $pay->payment_status }}</td>
+                            <td class="numeric">{{ $pay->total }} )({{ $pay->carr_type }})</td>
+                            <td class="numeric">{{$pay->cashier }}</td>
+                            <td class="numeric">{{ $pay->check_date }}</td>
+                            <td  class="numeric"> {{ $pay->check_date }}</td>
+                            <td  class="numeric"> {{ $pay->notes }}</td>
+                            {{$i+=$pay->total}}
+                        @endforeach
+                        
                     </tr>
-
+                    <tr>
+                        <td colspan="4">المجموع : </td><td colspan="5">{{$i}}</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
