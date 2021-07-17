@@ -32,13 +32,19 @@
                        @foreach ($flat as $item)
                        <tr>
                            <td class="numeric">{{ ++$i }}</td>
-                           <td class="numeric">{{ $item->project_id }}</td>
+                           <td class="numeric">{{ $item->project->project_name }}</td>
                            <td class="numeric"> <a href="{{ route('flats.show',$item->id)}}">{{ $item->flat_num }}</a></td>
                            <td class="numeric">{{ $item->flat_owner }}</td>
                            <td class="numeric">{{ $item->flat_contract_date }}</td>
                             <td class="numeric">{{ $item->flat_place }}, {{ $item->flat_side }}</td>
                            <td class="numeric">{{ $item->flat_area }}</td>
                            <td  class="numeric"> 
+
+                            <form action="{{ route('add_draft',$item->id) }}" method="post">
+                                @csrf
+                                @method('POST')
+                                <button type="submit"> submit </button>
+                            </form>
                                <a  class="btn btn-success" href="{{ route('flats.edit',$item->id) }}">تعديل</a>
                                <a  class="btn btn-danger" href="{{ route('flats.delete',$item->id)}}"> حذف </a>
                                <div class="btn-group">
@@ -47,8 +53,9 @@
                                 </button>
                                 <ul class="dropdown-menu pull-left" role="menu">
                                     <li>
-                                        <a href="/add_draft">
-                                            <i class="icon-docs"></i>اضافة كمبيالة</a>
+                                        <a href="{{ route('add_draft',$item->id) }}">
+                                            <i class="icon-docs"></i>اضافة كمبيالة
+                                             </a>
                                     </li>
                                     <li>
                                         <a href="javascript:;">

@@ -98,6 +98,7 @@ class SupplierController extends Controller
 
         return view('project.show_pays',compact('supplier'));
     }
+    
     public function softDelete(  $id)
     {
 

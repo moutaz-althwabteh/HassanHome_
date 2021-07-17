@@ -21,9 +21,9 @@
                     <div class="col-md-3" style=" margin-bottom:0.1px">
                         <select class="form-control select2me" name="project_id">
                             <option value="0">اسم المشروع </option>
-                            <option value="1">حسان 1 </option>
-                            <option value="2">حسان 2</option>
-                            <option value="3">حسان 3</option>
+                            @foreach ($projects as $project)
+                            <option value="{{$project->id}}">{{$project->project_name}}</option>
+                         @endforeach
                         </select></div>
                      <div class="col-md-3" style=" margin-bottom:0.1px">
                     <input type="text" name="flat_num" class="form-control" placeholder="رقم الشقة"> </div>

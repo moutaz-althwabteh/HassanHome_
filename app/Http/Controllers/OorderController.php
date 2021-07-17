@@ -17,8 +17,10 @@ class OorderController extends Controller
     public function index()
     {
         $order = Oorder::with('project')->get();
-        // dd($order->toArray());
-        return view ('project.view_orders',compact('order'));
+        $supplier = Oorder::with('supplier')->get();
+        
+         //dd($order->toArray());
+        return view ('project.view_orders',compact('order','supplier'));
     }
 
     /**
@@ -99,8 +101,18 @@ class OorderController extends Controller
     {
 
         $order = Oorder::find($id)->delete();
-
         return redirect()->route('orders.index')
         ->with('success','order deleted successflly') ;
     }
+
+
+    public function show_order_details($id)
+    {
+        $order = Oorder::with('order_details')->find($id);//جيب المورد اللي رقفمو id مع كل الفواتير تاعتو
+
+               // dd($order->toArray());
+        return view('project.show_order_details',compact('order'));
+    }
+ 
+    
 }

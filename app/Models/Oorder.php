@@ -25,6 +25,18 @@ class Oorder extends Model
 
      public function project()
      {
-      return $this->belongsTo(Project::class,'project_id');
+     return $this->belongsTo(Project::class,'project_id');
+      // return $this->belongsTo('App\Models\Project', 'project_id' );
+     }
+
+     public function supplier()
+     {
+     return $this->belongsTo(supplier::class,'supplier_id');
+      // return $this->belongsTo('App\Models\Project', 'project_id' );
+     }
+
+     public function order_details()
+     {
+         return $this->hasMany(Order_details::class,'order_id');
      }
 }

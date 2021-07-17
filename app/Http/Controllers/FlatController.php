@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Flat;
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -15,8 +16,9 @@ class FlatController extends Controller
      */
     public function index()
     {
+        $project = Project::with('project')->get();
         $flat = Flat::all();
-        return view('project.view_flats',compact('flat'));
+        return view('project.view_flats',compact('flat','project'));
     }
 
     /**
@@ -26,7 +28,8 @@ class FlatController extends Controller
      */
     public function create()
     {
-        return view('project.add_flat');
+        $projects = Project::all();
+        return view('project.add_flat', compact('projects'));
     }
 
     /**
@@ -101,34 +104,32 @@ class FlatController extends Controller
     {
         $flat = Flat::find($id);
         // بنجيب باقي قسمة ربح الشقة المدخل على عدد الأشهر المدخل 
-        // $x = باقي القسمة
-
-
-
-
-
+             $x = $flat->profit_value % $flat->no_monthes ;
         for ($i=0; $i <$flat->no_monthes ; $i++) { 
              // تاريخ الاستحقاق = 
-             //$installment_date = $flat->installment_sdate->addMonth($i);
+            $installment_date = $flat->installment_sdate->addMonth($i);
              if($i == $flat->no_monthes-1) // اخر للووب اخر شهر
              {
                  if($x==0)// قيمة الدفعة هيا القيمة المتفق عليها 
                  {
-                    
-                 }else{
+                    $instalment_value = $flat->instalment_value;
+                 }
+                 else
+                 {
                      //قيمة الدفعة هيا باقي القسمة
-
+                     $instalment_value = $x;
                  }
              }
              // insert(installment_date,قيمة الدفعة,نوع السدادا),;حالة الدفعة;
 
-             $draft = new Draft();
+             $draft = new DraftController();
              $draft->flat_id = $flat->id;
              $draft->installment_date = $installment_date;
-             ... 
-             ...
-             ...
+             $draft->instalment_value = $instalment_value;             
              $draft->save();
+             dd($draft->toArray());
+
+             return view("project.view_flats");
         }
         
     }

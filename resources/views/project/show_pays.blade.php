@@ -26,11 +26,11 @@
                         <th class="numeric"> ملاحظات  </th>
                     </tr>
                 </thead>
-                <tbody>
-
+                <tbody> 
+                    @php $i =0   
+                    @endphp 
+                    @foreach ($supplier->pays as $pay)
                     <tr>
-                        {{$i =0}}
-                        @foreach ($supplier->pays as $pay)
                             <td class="numeric">{{ $pay->date }}</td>
                             <td class="numeric">{{ $pay->payment_receipt }}</td>
                             <td class="numeric">{{ $pay->payment_type }}</td>
@@ -40,10 +40,11 @@
                             <td class="numeric">{{ $pay->check_date }}</td>
                             <td  class="numeric"> {{ $pay->check_date }}</td>
                             <td  class="numeric"> {{ $pay->notes }}</td>
-                            {{$i+=$pay->total}}
-                        @endforeach
-                        
+                            @php
+                            $i+=$pay->total 
+                            @endphp 
                     </tr>
+                    @endforeach
                     <tr>
                         <td colspan="4">المجموع : </td><td colspan="5">{{$i}}</td>
                     </tr>

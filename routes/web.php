@@ -30,9 +30,11 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 // })->name('order.view');
 
 Route::resource('orders', 'OorderController');
-
 Route::resource('supplier', 'SupplierController');
 Route::get('supplier/show_pays/{id}','SupplierController@show_pays')->name('supplier.pays');
+Route::get('orders/show_order_details/{id}','OorderController@show_order_details')->name('orders.order_details');
+
+
 Route::get('supplier/soft/delete/{id}', 'SupplierController@softDelete')
 ->name('supplier.delete');
 
@@ -51,8 +53,17 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('order_details', 'OrderDetailsController');
 Route::resource('flats', 'FlatController');
 Route::resource('pays', 'PaysController');
+Route::resource('drafts', 'DraftController');
 
-Route::get('/add_flat', function () {
+
+Route::get('/add_draft', function () {
     return view('project.add_draft');
 });
+
+Route::post('/add_draft', [
+    'as'   => 'add_draft',
+    'uses' => 'FlatController@add_draft',
+]);
+
+
 

@@ -29,7 +29,7 @@
                        <input type="text" name="voucher_value" class="form-control" placeholder="قيمة الطلبية "> </div>
                        <div class="col-md-3 form-group">
                         <select class="form-control select2me" name="project_title" >
-                            <option value="">اختر</option>
+                            <option value="0"> اختر اسم المشروع </option>
                             <?php foreach ($projects as $project) {
                                 ?>
                                 <option value="{{$project->id}}">{{$project->project_name}}</option>
@@ -49,8 +49,9 @@
                         <div class="col-md-3 form-group">
                             <select class="form-control select2me" name="supplier_name">
                                 <option value="0">اسم المورد</option>
-                                <option value="1">مورد 1 </option>
-                                <option value="2">مورد 2</option>
+                                @foreach ($suppliers as $supplier )
+                                <option value="$supplier->id">{{ $supplier->s_name }}</option>
+                                @endforeach
                             </select>
                        </div>
                        <div class="col-md-3 form-group">

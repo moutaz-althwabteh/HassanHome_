@@ -29,7 +29,12 @@ class Project extends Model
         'project_contract',
         'project_notes',
     ];
-    
+
+    public function project()
+    {
+        return $this->hasMany('App\Models\Flat', 'project_id' );
+    }
+ 
 }
 
 

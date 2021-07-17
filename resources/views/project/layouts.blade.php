@@ -79,17 +79,17 @@
                                     <i class="icon-docs"></i> اضافة مشروع جدد</a>
                             </li>
                             <li>
-                                <a href="{{ url ('/add_supplier')}}">
+                                <a href="{{ route ('orders.create')}}">
                                     <i class="icon-calendar"></i> اضافة مورد جديد </a>
                             </li>
 
                             <li>
-                                <a href="{{ url ('/add_order')}}">
+                                <a href="{{ route ('supplier.create')}}">
                                     <i class="icon-tag"></i> اضافة طلبية جديدة </a>
                             </li>
 
                             <li>
-                                <a href="{{ url ('/add_flat')}}">
+                                <a href="{{ route ('flats.create')}}">
                                     <i class="icon-tag"></i> اضافة شقة جديدة </a>
                             </li>
                         </ul>
