@@ -47,7 +47,7 @@
                                 </button>
                                 <ul class="dropdown-menu pull-left" role="menu">
                                     <li>
-                                        <a href="{{ route('add_draft',$item->id) }}">
+                                        <a href="{{ route('flats.add_drafts',["id"=>$item->id]) }}">
                                             <i class="icon-docs"></i>اضافة كمبيالة
                                              </a>
                                     </li>

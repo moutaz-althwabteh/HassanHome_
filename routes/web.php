@@ -54,19 +54,14 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 Route::resource('order_details', 'OrderDetailsController');
-Route::resource('flats', 'FlatController');
+
 Route::resource('pays', 'PaysController');
 Route::resource('drafts', 'DraftController');
 
+// flats
+Route::resource('flats', 'FlatController');
+Route::get('flats/add_drafts/{id}','FlatController@add_draft')->name('flats.add_drafts');
 
-Route::get('/add_draft', function () {
-    return view('project.add_draft');
-});
-
-Route::post('/add_draft', [
-    'as'   => 'add_draft',
-    'uses' => 'FlatController@add_draft',
-]);
 
 
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Flat;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use App\Models\Draft;
 use Carbon\Carbon;
 
 class FlatController extends Controller
@@ -114,11 +115,19 @@ class FlatController extends Controller
     public function add_draft($id)
     {
         $flat = Flat::find($id);
+
+        if($flat->is_draft == 1){
+             return redirect()->back();
+        }
+        $flat->is_draft = 1;
+        $flat->save();
+        $x = $flat->profit_value % $flat->no_monthes ;
+        $instalment_value = $flat->instalment_value;
         // بنجيب باقي قسمة المبلغ المقسط مع الربح  المدخل على عدد الأشهر المدخل 
-             $x = $flat->profit_value % $flat->no_monthes ;
         for ($i=0; $i <$flat->no_monthes ; $i++) { 
              // تاريخ الاستحقاق = 
-            $installment_date = $flat->installment_sdate->addMonth($i);
+            $installment_date = Carbon::parse($flat->installment_sdate)->addMonth($i);
+            
              if($i == $flat->no_monthes-1) // اخر للووب اخر شهر
              {
                  if($x==0)// قيمة الدفعة هيا القيمة المتفق عليها 
@@ -128,20 +137,18 @@ class FlatController extends Controller
                  else
                  {
                      //قيمة الدفعة هيا باقي القسمة
-                     $instalment_value = $x;
+                    
                  }
+                
              }
              // insert(installment_date,قيمة الدفعة,نوع السدادا),;حالة الدفعة;
 
-             $draft = new DraftController();
+             $draft = new Draft();
              $draft->flat_id = $flat->id;
              $draft->installment_date = $installment_date;
              $draft->instalment_value = $instalment_value;             
              $draft->save();
-             dd($draft->toArray());
-
-             return view("project.view_flats");
         }
-        
+        return  redirect()->back();
     }
 }
