@@ -39,12 +39,6 @@
                             <td class="numeric">{{ $item->flat_place }}, {{ $item->flat_side }}</td>
                            <td class="numeric">{{ $item->flat_area }}</td>
                            <td  class="numeric"> 
-
-                            <form action="{{ route('add_draft',$item->id) }}" method="post">
-                                @csrf
-                                @method('POST')
-                                <button type="submit"> submit </button>
-                            </form>
                                <a  class="btn btn-success" href="{{ route('flats.edit',$item->id) }}">تعديل</a>
                                <a  class="btn btn-danger" href="{{ route('flats.delete',$item->id)}}"> حذف </a>
                                <div class="btn-group">
@@ -62,7 +56,7 @@
                                             <i class="icon-docs"></i>طباعة العقد</a>
                                     </li>
                                     <li>
-                                        <a href="javascript:;">
+                                        <a href="{{ route('flat.drafts',$item->id)}}">
                                             <i class="icon-tag"></i>طباعة الكمبيالة</a>
                                     </li>
                                     <li>

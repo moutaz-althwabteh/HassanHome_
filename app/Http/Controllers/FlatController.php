@@ -100,10 +100,21 @@ class FlatController extends Controller
         ->with('success','flat deleted successflly') ;
     }
 
+
+
+    public function show_drafts($id)
+    {
+        $flat = Flat::with('drafts')->find($id);//جيب المورد اللي رقفمو id مع كل الفواتير تاعتو
+
+        return view('project.show_drafts',compact('flat'));
+    }
+
+
+
     public function add_draft($id)
     {
         $flat = Flat::find($id);
-        // بنجيب باقي قسمة ربح الشقة المدخل على عدد الأشهر المدخل 
+        // بنجيب باقي قسمة المبلغ المقسط مع الربح  المدخل على عدد الأشهر المدخل 
              $x = $flat->profit_value % $flat->no_monthes ;
         for ($i=0; $i <$flat->no_monthes ; $i++) { 
              // تاريخ الاستحقاق = 

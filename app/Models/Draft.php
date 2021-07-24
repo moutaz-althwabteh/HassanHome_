@@ -15,4 +15,6 @@ class Draft extends Model
 'installment_date',
 'instalment_value',
    ];
+
+   
 }

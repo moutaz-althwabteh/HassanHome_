@@ -64,4 +64,9 @@ protected $fillable = [
        return $this->belongsTo('App\Models\project', 'project_id' );
    }
 
+   public function drafts()
+   {
+       return $this->hasMany(Draft::class,'flat_id');
+   }
+
 }

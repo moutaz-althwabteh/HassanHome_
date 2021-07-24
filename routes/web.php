@@ -34,6 +34,9 @@ Route::resource('supplier', 'SupplierController');
 Route::get('supplier/show_pays/{id}','SupplierController@show_pays')->name('supplier.pays');
 Route::get('orders/show_order_details/{id}','OorderController@show_order_details')->name('orders.order_details');
 
+Route::get('drafts/show_drafts/{id}','FlatController@show_drafts')->name('flat.drafts');
+
+
 
 Route::get('supplier/soft/delete/{id}', 'SupplierController@softDelete')
 ->name('supplier.delete');
